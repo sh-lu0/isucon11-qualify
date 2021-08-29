@@ -12,7 +12,11 @@ CREATE TABLE `isu` (
   `jia_user_id` VARCHAR(255) NOT NULL,
   `created_at` DATETIME(6) DEFAULT CURRENT_TIMESTAMP(6),
   `updated_at` DATETIME(6) DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
-   PRIMARY KEY(`id`)
+  INDEX idx_jia_user_id_id (`jia_user_id`, `id`),
+  INDEX idx_character (`character`),
+  INDEX idx_jia_isu_uuid (`jia_isu_uuid`),
+  INDEX idx_jia_user_id_jia_isu_uuid (`jia_user_id`, `jia_isu_uuid`),
+  PRIMARY KEY(`id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb4;
 
 CREATE TABLE `isu_condition` (
